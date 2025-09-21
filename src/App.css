@@ -1,0 +1,8 @@
+.ck-editor__editable_inline {
+    min-height: 200px;
+    max-height: 400px;
+    padding: 100px;
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+    border: 1px solid #fc0c0c;
+  }
