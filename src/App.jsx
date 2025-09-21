@@ -8,8 +8,6 @@ import Category from './pages/category/Category'
 import Products from './pages/product/Products'
 import { BrowserRouter as Router , Routes , Route } from 'react-router-dom'
 import Login from './components/Login'
-import AddProduct from './pages/product/AddProduct';
-import EditProduct from './pages/product/EditProduct';
 import Customers from './pages/customer/Customers';
 import Dashboard from './pages/dashboard/Dashboard';
 import Orders from './pages/order/Orders';
@@ -22,6 +20,7 @@ import RazorpayOrders from './pages/razorpay/RazorpayOrders';
 import ViewRazorpayOrder from './pages/razorpay/ViewRazorpayOrder';
 import RefundedOrders from './pages/razorpay/RefundedOrders';
 import ReturnOrders from './pages/ShiprocketOrder/ReturnOrders';
+import ManageProduct from './pages/product/ManageProduct';
 export let navOpen = createContext()
 function App() {
   const [count, setCount] = useState(0)
@@ -42,8 +41,7 @@ function App() {
 
           {/* products */}
           <Route path="/products" element={<Products/>} />
-          <Route path="/add-product" element={<AddProduct/>} />
-          <Route path="/edit-product/:id" element={<EditProduct/>} />
+          <Route path="/manage-product" element={<ManageProduct/>} />
 
           {/* customers */}
           <Route path="/customers" element={<Customers/>} />

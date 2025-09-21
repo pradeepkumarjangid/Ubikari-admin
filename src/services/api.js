@@ -26,6 +26,9 @@ const apiObj = {
     getCategory : (headers)=>{
         return axios.get(`${baseUrl}/admin/category/getAllCategory` , {headers})
     },
+    getCategoryWithSubCat : (headers)=>{
+        return axios.get(`${baseUrl}/admin/category/getCatWithSubCat` , {headers})
+    },
     createCategory : (data , headers)=>{
         return axios.post(`${baseUrl}/category/create` , data , {headers})
     },
