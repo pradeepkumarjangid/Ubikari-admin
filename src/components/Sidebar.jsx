@@ -68,10 +68,10 @@ export default function Sidebar() {
                 <AiFillProduct className='text-[24px]'/> 
                 Products
             </p>
-            {/* <p className={`hover:text-[#696cff] hover:bg-[#f5f5f9] mt-1 py-1 rounded-lg hover:font-bold items-center  cursor-pointer flex gap-4 pl-5 min-w-[218px] ${nav == "Orders" || nav == "View Order" ? "bg-white text-[#696cff] font-bold " : ""} `} onClick={()=>navigate('/orders')}>
+            <p className={`hover:text-[#696cff] hover:bg-[#f5f5f9] mt-1 py-1 rounded-lg hover:font-bold items-center  cursor-pointer flex gap-4 pl-5 min-w-[218px] ${nav == "Orders" || nav == "View Order" ? "bg-white text-[#696cff] font-bold " : ""} `} onClick={()=>navigate('/orders')}>
                 <FaBorderAll className='text-[24px]'/> 
                 Orders
-            </p> */}
+            </p>
             <p className={`hover:text-[#696cff] hover:bg-[#f5f5f9] mt-1 py-1 rounded-lg hover:font-bold items-center  cursor-pointer flex gap-4 pl-5 min-w-[218px] ${nav == "Shiprocket Orders" || nav == "View shiprocket Order" ? "bg-white text-[#696cff] font-bold " : ""} `} onClick={()=>navigate('/shiprocket-orders')}>
                 <FaBorderAll className='text-[24px]'/> 
                 Shiprocket Orders

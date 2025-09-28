@@ -22,7 +22,7 @@ export default function ViewOrder() {
     // Function to fetch order details
     const getOrderDetail = async () => {
         try {
-            let result = await apiObj.getSingleShipmentOrder(id, headers);
+            let result = await apiObj.getSingleOrder(id, headers);
             console.log(result);
             if (result.data.order) {
                 setOrder(result.data.order);
@@ -107,7 +107,7 @@ export default function ViewOrder() {
                         </div>
                         <div>
                             <p className="text-sm text-gray-600">INVOICE NO</p>
-                            <p className="text-lg font-semibold">{order ? order.shiprocketDetails.data.invoice_no : ""}</p>
+                            <p className="text-lg font-semibold">{ "INV-01"}</p>
                         </div>
                         <div>
                             <p className="text-sm text-gray-600">DATE</p>
@@ -115,7 +115,7 @@ export default function ViewOrder() {
                         </div>
                         <div>
                             <p className="text-sm text-gray-600">PAYMENT STATUS</p>
-                            <p className="text-lg font-semibold text-green-600">{order ? (order.shiprocketDetails.data.cod ? "COD" : "Prepaid") : ""}</p>
+                            <p className="text-lg font-semibold text-green-600">{order ? (order?.paymentMethod ) : ""}</p>
                         </div>
                         {/* <div>
                             <p className="text-sm text-gray-600">ORDER STATUS</p>
@@ -131,10 +131,10 @@ export default function ViewOrder() {
                     <div className="bg-white p-6 rounded-md my-6 grid grid-cols-2 gap-4">
                         <div>
                             <p className="text-lg font-semibold mb-2">Shipping Address</p>
-                            <p>{order ? order.shiprocketDetails.data.billing_name : ""}</p>
-                            <p>{order ? order.shiprocketDetails.data.billing_email : ""}</p>
-                            <p>{order ? order.shiprocketDetails.data.billing_phone : ""}</p>
-                            <p>{order ? order.shiprocketDetails.data.billing_address : ""}, {order ? order.shiprocketDetails.data.billing_pincode : ""}</p>
+                            <p>{order ? order?.shippingAddress.name : ""}</p>
+                            <p>{order ? order?.shippingAddress.email : ""}</p>
+                            <p>{order ? order?.shippingAddress.phone : ""}</p>
+                            <p>{order ? order?.shippingAddress.address : ""}, {order ? order?.shippingAddress.pincode : ""}</p>
                         </div>
                     </div>
 
@@ -151,13 +151,13 @@ export default function ViewOrder() {
                                 </tr>
                             </thead>
                             <tbody>
-                                {order && order.orderItems && order.orderItems.length > 0 ? order.orderItems.map((item, index) => (
+                                {order && order.items && order.items.length > 0 ? JSON.parse(order.items).map((item, index) => (
                                     <tr key={index}>
                                         <td className="border-b p-2">{index + 1}</td>
                                         <td className="border-b p-2">{item.productName}</td>
-                                        <td className="border-b p-2">₹{item.productPriceAfterDiscount.toFixed(2)}</td>
-                                        <td className="border-b p-2">{item.qnty}</td>
-                                        <td className="border-b p-2">₹{item.priceAfterQnty.toFixed(2) }</td>
+                                        <td className="border-b p-2">₹{item.priceAfterDiscount.toFixed(2)}</td>
+                                        <td className="border-b p-2">{item.quantity}</td>
+                                        <td className="border-b p-2">₹{+(item.priceAfterDiscount * item?.quantity).toFixed(2) }</td>
                                     </tr>
                                 )) : null}
                             </tbody>
@@ -168,19 +168,19 @@ export default function ViewOrder() {
                     <div className="bg-white p-6 rounded-md my-6 text-right">
                         <div className="flex justify-between">
                             <p>Sub Total</p>
-                            <p>₹ {order ? order.sub_total.toFixed(2) : 0}</p>
+                            <p>₹ {order ? order.subTotal.toFixed(2) : 0}</p>
                         </div>
                         <div className="flex justify-between">
                             <p>Discount</p>
-                            <p>₹ -{order ? order.discount_applied : 0}</p>
+                            <p>₹ -{order ? order.discount : 0}</p>
                         </div>
                         <div className="flex justify-between">
                             <p>Shipping Charge</p>
-                            <p>₹ {order ? order.shipping_charges : 0}</p>
+                            <p>₹ {order ? order.shippingCharges : 0}</p>
                         </div>
                         <div className="flex justify-between font-semibold text-lg">
                             <p>Total Amount</p>
-                            <p>₹ {order ? order.total.toFixed(2) : 0}</p>
+                            <p>₹ {order ? order.finalAmount.toFixed(2) : 0}</p>
                         </div>
                     </div>
                 {/* Print Button */}

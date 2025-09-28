@@ -179,10 +179,10 @@ export default function Orders() {
                   <td className="text-center  border">{order.orderId}</td>
                   
                   <td className="text-center  border">{order.userId.name}</td>
-                  <td className="text-center w-[] border">{order.amountAfterShipping.toFixed(2)}</td>
+                  <td className="text-center w-[] border">{+(order.amountAfterShipping || 0)?.toFixed(2)}</td>
                   <td className="text-center w-[] border">{order.paymentMethod}</td>
                   <td className="text-center w-[] border">{formatDate(order.createdAt)}</td>
-                  <td className="text-center w-[] border"><input type="date" value={order.estimateDeliveryDate.slice(0,10)} className="bg-transparent focus:outline-[#696cff]" /></td>
+                  <td className="text-center w-[] border"><input type="date" value={"ii"} className="bg-transparent focus:outline-[#696cff]" /></td>
                   <td className="text-center  border p-2">	
                   <select name="" id="" className="bg-transparent focus:outline-[#696cff]" value={order.status} onChange={(e)=>editOrder(order , e.target.value)}>
                       <option value="New Order">New Order</option>
