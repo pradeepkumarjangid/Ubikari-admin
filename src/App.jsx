@@ -21,6 +21,8 @@ import ViewRazorpayOrder from './pages/razorpay/ViewRazorpayOrder';
 import RefundedOrders from './pages/razorpay/RefundedOrders';
 import ReturnOrders from './pages/ShiprocketOrder/ReturnOrders';
 import ManageProduct from './pages/product/ManageProduct';
+import 'react-datepicker/dist/react-datepicker.css';
+
 export let navOpen = createContext()
 function App() {
   const [count, setCount] = useState(0)

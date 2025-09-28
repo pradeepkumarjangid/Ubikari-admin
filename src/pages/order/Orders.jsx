@@ -7,6 +7,8 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 import apiObj from "../../services/api";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import AdminOrderTable from "../NewOrders/NewOrders";
+import AdminOrderTableExpandable from "../NewOrders/AdminOrderTableExpend";
 
 export default function Orders() {
     let navigate = useNavigate()
@@ -14,7 +16,7 @@ export default function Orders() {
     const notifySuccess = (msg) => toast.success(msg)
     const { showIcons, setShowIcons } = useContext(navOpen);
   const [status, setStatus] = useState(true);
-  const [orders, setOrders] = useState(false);
+  const [orders, setOrders] = useState([]);
   const [currentOrder, setCurrentOrder] = useState(false);
   const[deleteBox , setDeleteBox]= useState(false)
   let UNIKARIADMIN = localStorage.getItem("UNIKARIADMIN");
@@ -30,13 +32,13 @@ export default function Orders() {
       if(result.data.orders && result.data.orders.length > 0 ){
         setOrders(result.data.orders)
       }else{
-        setOrders('no data')
+        setOrders([])
       }
       console.log(result)
     }catch(err){
       console.log(err)
       if(err.message && err.message == "Network Error"){
-        setOrders('Network')
+        setOrders([])
       }
     }
   }
@@ -48,14 +50,14 @@ export default function Orders() {
         if(result.data.data && result.data.data.length > 0 ){
           setOrders(result.data.data)
         }else{
-          setOrders('no data')
+          setOrders([])
         }
         console.log(result)
       }catch(err){
         console.log(err)
         if(err.response){
           if(err.response.data.message == "No orders found"){
-            setOrders('no data')
+            setOrders([])
           }
         }
       }
@@ -149,6 +151,8 @@ export default function Orders() {
             
           </div>
 
+{/* <AdminOrderTable orders={orders}/> */}
+<AdminOrderTableExpandable orders={orders}/>
           <div className="pt-5 max-w-[100vw] overflow-hidden ">
             <div className="overflow-auto">
             <table className="w-full min-w-[950px]  border">
@@ -194,7 +198,7 @@ export default function Orders() {
                     </select></td>
                   <td className="text-center w-[] border">
                    <p className="flex gap-3 w-full justify-center">
-                    <IoEyeOutline className="text-[#696cff] text-[20px] cursor-pointer" onClick={()=>navigate(`/view-order/${order._id}`)}/>
+                    <IoEyeOutline className="text-[#696cff] text-[20px] cursor-pointer" onClick={()=>navigate(`/view-order/${order?.orderId}`)}/>
                     {/* <MdOutlineModeEdit className=" text-[20px] cursor-pointer" 
                     onClick={()=>navigate(`/edit-product/${order._id}`)}
                     /> */}
@@ -211,6 +215,7 @@ export default function Orders() {
             </table>
             </div>
           </div>
+
         </div>
       </Layout>
 

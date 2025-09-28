@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 .sidebar::-webkit-scrollbar {
     width: 2px; /* Adjust width as needed */
     height:0

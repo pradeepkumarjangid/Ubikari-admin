@@ -119,7 +119,7 @@ const apiObj = {
         return axios.get(`${baseUrl}/order/searchOrder?q=${query}`  , {headers})
     },
     getSingleOrder : (id , headers)=>{
-        return axios.get(`${baseUrl}/order/getSingle/${id}` , {headers})
+        return axios.get(`${baseUrl}/order/getSingleOrder/${id}` , {headers})
     },
     deleteOrder : (id , headers)=>{
         return axios.delete(`${baseUrl}/order/deleteOrder/${id}`  , {headers})
