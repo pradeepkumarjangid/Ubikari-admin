@@ -112,6 +112,9 @@ const apiObj = {
     getOrders : (headers)=>{
         return axios.get(`${baseUrl}/order/allOrders` , {headers})
     },
+    createOrderOnShip : (data , headers)=>{
+        return axios.post(`${baseUrl}/order/create-order-on-ship` ,data, {headers})
+    },
     // deleteOrder : (id , headers)=>{
     //     return axios.delete(`${baseUrl}/order/delete/${id}`  , {headers})
     // },
