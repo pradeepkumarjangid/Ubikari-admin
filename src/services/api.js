@@ -115,6 +115,9 @@ const apiObj = {
     createOrderOnShip : (data , headers)=>{
         return axios.post(`${baseUrl}/order/create-order-on-ship` ,data, {headers})
     },
+    assignAWBWithPickUp : (data , headers)=>{
+        return axios.post(`${baseUrl}/shiprocket/generateAwbWithPickRequest` ,data, {headers})
+    },
     // deleteOrder : (id , headers)=>{
     //     return axios.delete(`${baseUrl}/order/delete/${id}`  , {headers})
     // },

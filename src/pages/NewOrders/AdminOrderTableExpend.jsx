@@ -38,6 +38,7 @@ const AdminOrderTableExpandable = ({ orders = [] }) => {
       label: "Create On Shiprocket",
       icon: <SaveOutlined />,
     },
+    { key: "generateAwbAndShip", label: "Generate AWB And Ship", icon: <CloseCircleOutlined /> },
     { key: "cancel", label: "Cancel Order", icon: <CloseCircleOutlined /> },
     { key: "ship", label: "Mark as Shipped", icon: <TruckOutlined /> },
     // {
@@ -58,6 +59,9 @@ const AdminOrderTableExpandable = ({ orders = [] }) => {
         break;
       case "createOnShipRocket":
         handleCreateShipRocketOrder(order);
+        break;
+      case "generateAwbAndShip":
+        generateAwbAndShip(order);
         break;
       case "cancel":
         message.warning(`Cancelling order ${order.orderId}`);
@@ -143,9 +147,11 @@ const AdminOrderTableExpandable = ({ orders = [] }) => {
     const filteredActions = orderActions.filter((action) => {
       switch (action.key) {
         case "edit":
-          return order.admin_status === "New_order"; // Only show edit if order is pending
+          return order.admin_status === "New_order" ; // Only show edit if order is pending
         case "createOnShipRocket":
-          return !order.shiprocketOrderId; // Show only if not already created
+          return !order.shiprocketOrderId && order?.weight && order?.height && order?.length && order?.breadth; // Show only if not already created
+        case "generateAwbAndShip":
+          return order.shiprocketOrderId; // Show only if not already created
         case "cancel":
           return order.deliveryStatus === "Pending";
         case "ship":
@@ -296,6 +302,22 @@ const AdminOrderTableExpandable = ({ orders = [] }) => {
       },
     });
   };
+  const generateAwbAndShip = async(order)=>{
+    // console.log(order)
+    let data = {
+      shipment_id : order?.shiprocketOrderId,
+      deliveryPin: order?.shippingAddress?.pincode,
+      weight: order?.weight,
+      cod : order?.paymentMethod == "cod" ? true : false
+    }
+    console.log(data)
+    try{
+      const res = await apiObj.assignAWBWithPickUp(data , headers)
+      console.log(res)
+    }catch(err){
+      console.log(err)
+    }
+  }
   return (
     <div style={{ padding: 24, background: "#f0f2f5", minHeight: "100vh" }}>
       <h2>Admin Orders (Expandable Rows)</h2>
