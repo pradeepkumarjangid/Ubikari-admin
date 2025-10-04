@@ -41,6 +41,13 @@ export default function Sidebar() {
                 <MdDashboard className='text-[24px]'/> 
                 Dashboard
             </p>
+            <p className={`hover:text-[#696cff] hover:bg-[#f5f5f9] mt-1 py-1 rounded-lg  hover:font-bold items-center  cursor-pointer flex gap-4 pl-5 min-w-[218px] ${nav == "Banners" ? "bg-white text-[#696cff] font-bold " : ""} `}
+             onClick={()=>{
+                navigate('/home-banners')
+            }}>
+                <FaUsers className='text-[24px]'/> 
+                Banners
+            </p>
             <p className={`hover:text-[#696cff] hover:bg-[#f5f5f9] mt-1 py-1 rounded-lg  hover:font-bold items-center  cursor-pointer flex gap-4 pl-5 min-w-[218px] ${nav == "Customers" ? "bg-white text-[#696cff] font-bold " : ""} `}
              onClick={()=>{
                 navigate('/customers')
@@ -72,22 +79,22 @@ export default function Sidebar() {
                 <FaBorderAll className='text-[24px]'/> 
                 Orders
             </p>
-            <p className={`hover:text-[#696cff] hover:bg-[#f5f5f9] mt-1 py-1 rounded-lg hover:font-bold items-center  cursor-pointer flex gap-4 pl-5 min-w-[218px] ${nav == "Shiprocket Orders" || nav == "View shiprocket Order" ? "bg-white text-[#696cff] font-bold " : ""} `} onClick={()=>navigate('/shiprocket-orders')}>
+            {/* <p className={`hover:text-[#696cff] hover:bg-[#f5f5f9] mt-1 py-1 rounded-lg hover:font-bold items-center  cursor-pointer flex gap-4 pl-5 min-w-[218px] ${nav == "Shiprocket Orders" || nav == "View shiprocket Order" ? "bg-white text-[#696cff] font-bold " : ""} `} onClick={()=>navigate('/shiprocket-orders')}>
                 <FaBorderAll className='text-[24px]'/> 
                 Shiprocket Orders
-            </p>
-            <p className={`hover:text-[#696cff] hover:bg-[#f5f5f9] mt-1 py-1 rounded-lg hover:font-bold items-center  cursor-pointer flex gap-4 pl-5 min-w-[218px] ${nav == "refund-orders" || nav == "Return Orders" ? "bg-white text-[#696cff] font-bold " : ""} `} onClick={()=>navigate('/returned-orders')}>
+            </p> */}
+            {/* <p className={`hover:text-[#696cff] hover:bg-[#f5f5f9] mt-1 py-1 rounded-lg hover:font-bold items-center  cursor-pointer flex gap-4 pl-5 min-w-[218px] ${nav == "refund-orders" || nav == "Return Orders" ? "bg-white text-[#696cff] font-bold " : ""} `} onClick={()=>navigate('/returned-orders')}>
                 <FaBorderAll className='text-[24px]'/> 
                 Returned Orders
-            </p>
-            <p className={`hover:text-[#696cff] hover:bg-[#f5f5f9] mt-1 py-1 rounded-lg hover:font-bold items-center  cursor-pointer flex gap-4 pl-5 min-w-[218px] ${nav == "Razorpay Orders"  ? "bg-white text-[#696cff] font-bold " : ""} `} onClick={()=>navigate('/razorpay')}>
+            </p> */}
+            {/* <p className={`hover:text-[#696cff] hover:bg-[#f5f5f9] mt-1 py-1 rounded-lg hover:font-bold items-center  cursor-pointer flex gap-4 pl-5 min-w-[218px] ${nav == "Razorpay Orders"  ? "bg-white text-[#696cff] font-bold " : ""} `} onClick={()=>navigate('/razorpay')}>
                 <FaBorderAll className='text-[24px]'/> 
                 Razorpay
-            </p> 
-            <p className={`hover:text-[#696cff] hover:bg-[#f5f5f9] mt-1 py-1 rounded-lg hover:font-bold items-center  cursor-pointer flex gap-4 pl-5 min-w-[218px] ${nav == "Refund Orders"  ? "bg-white text-[#696cff] font-bold " : ""} `} onClick={()=>navigate('/refund-orders')}>
+            </p>  */}
+            {/* <p className={`hover:text-[#696cff] hover:bg-[#f5f5f9] mt-1 py-1 rounded-lg hover:font-bold items-center  cursor-pointer flex gap-4 pl-5 min-w-[218px] ${nav == "Refund Orders"  ? "bg-white text-[#696cff] font-bold " : ""} `} onClick={()=>navigate('/refund-orders')}>
                 <FaBorderAll className='text-[24px]'/> 
                 Refund Orders
-            </p> 
+            </p>  */}
             <p className={`hover:text-[#696cff] hover:bg-[#f5f5f9] mt-1 py-1 rounded-lg hover:font-bold items-center  cursor-pointer flex gap-4 pl-5 min-w-[218px] ${nav == "Offers"  ? "bg-white text-[#696cff] font-bold " : ""} `} onClick={()=>navigate('/offers')}>
                 <FaBorderAll className='text-[24px]'/> 
                 Offers

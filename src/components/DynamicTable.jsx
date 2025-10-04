@@ -18,6 +18,7 @@ const DynamicTable = ({
   pageSizeOptions = ["5", "10", "20", "50"],
   onRowClick = null, // optional callback
   actionRender = null, // NEW
+  pagination
 }) => {
   const [searchFilters, setSearchFilters] = useState(
     filters.reduce((acc, f) => {
@@ -152,6 +153,7 @@ const DynamicTable = ({
       />
 
       {/* Pagination */}
+      {pagination &&
       <div style={{ marginTop: 16, textAlign: "right" }}>
         <Pagination
           current={currentPage}
@@ -171,6 +173,7 @@ const DynamicTable = ({
           }
         />
       </div>
+       }
     </div>
   );
 };

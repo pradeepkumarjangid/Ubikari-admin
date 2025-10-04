@@ -6,3 +6,27 @@
     font-family: Arial, sans-serif;
     border: 1px solid #fc0c0c;
   }
+
+  .form-floating>.form-control-plaintext:-webkit-autofill, .form-floating>.form-control:-webkit-autofill{
+  background-color: #fff !important;
+}
+/* Chrome, Safari, Edge ke liye autofill color fix */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+textarea:-webkit-autofill, 
+textarea:-webkit-autofill:hover, 
+textarea:-webkit-autofill:focus, 
+select:-webkit-autofill, 
+select:-webkit-autofill:hover, 
+select:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 1000px white inset !important; /* background white */
+  -webkit-text-fill-color: #000 !important; /* text color */
+  transition: background-color 5000s ease-in-out 0s; /* background override */
+}
+
+input:-webkit-autofill ~ label {
+  top: -8px !important;
+  font-size: 12px !important;
+  /* color: #0d6efd !important;  */
+}

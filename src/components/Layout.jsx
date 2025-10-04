@@ -11,6 +11,8 @@ export default function Layout({children}) {
     useEffect(()=>{
         if(currentUrl.includes('dashboard')){
             setNav('Dashboard')
+        }else if(currentUrl.includes('home-banners')){
+            setNav('Banners')
         }else if(currentUrl.includes('sub-categories')){
             setNav('Sub Categories')
         }else if(currentUrl.includes('category')){

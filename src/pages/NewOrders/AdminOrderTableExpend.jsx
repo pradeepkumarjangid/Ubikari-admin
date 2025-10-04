@@ -330,6 +330,7 @@ const AdminOrderTableExpandable = ({ orders = [] }) => {
         defaultPageSize={5}
         pageSizeOptions={["5", "10", "20"]}
         actionRender={renderOrderActions} // NEW!
+        pagination={true}
       />
 
       <DynamicDrawer

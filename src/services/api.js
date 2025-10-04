@@ -217,6 +217,20 @@ const apiObj = {
     getPaymentData : async( headers)=>{
         return await axios.get(`${baseUrl}/payment/razorpay/collectedAmount` , {headers} )
     },
+
+    createNewbanner : async(data , header)=>{
+        return await axios.post(`${baseUrl}/homeBanner/create`,data,{header})
+    },
+    updateBanner : async(id,data , header)=>{
+        return await axios.put(`${baseUrl}/homeBanner/update/${id}`,data,{header})
+    },
+    deleteBanner : async(id , header)=>{
+        return await axios.delete(`${baseUrl}/homeBanner/delete/${id}`,{header})
+    },
+
+    getAllBanners : async(header)=>{
+        return await axios.get(`${baseUrl}/homeBanner/all`,{header})
+    },
     
 
 }

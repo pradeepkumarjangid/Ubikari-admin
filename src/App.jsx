@@ -22,6 +22,7 @@ import RefundedOrders from './pages/razorpay/RefundedOrders';
 import ReturnOrders from './pages/ShiprocketOrder/ReturnOrders';
 import ManageProduct from './pages/product/ManageProduct';
 import 'react-datepicker/dist/react-datepicker.css';
+import Homebanners from './pages/HomeBanners/Homebanners';
 
 export let navOpen = createContext()
 function App() {
@@ -36,6 +37,7 @@ function App() {
           <Route path="*" element={<Login/>} />
           <Route path="/" element={<Login/>} />
           <Route path="/dashboard" element={<Dashboard/>} />
+          <Route path="/home-banners" element={<Homebanners/>} />
 
           {/* category */}
           <Route path="/category" element={<Category/>} />
